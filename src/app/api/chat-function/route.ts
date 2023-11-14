@@ -1,11 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const fetch_weather = async (params: any) => {
-  console.log('>>> Mock third party API with:', {params});
+const fetch_weather = async ({city}: {city: string }) => {
+  console.log('>>> Third party API with:', {city});
+  const weatherUrl = `https://api.openweathermap.org/data/3.0/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`;
 
-  return {
-    temperature: 31,
-  };
+  try {
+    const response = await fetch(weatherUrl);
+    const parsed = await response.json();
+    console.log('>>>', {parsed})
+
+    return {
+      temperature: parsed.data.main.temp,
+    }
+  } catch (e) {
+    console.error(e);
+    // fallback
+    return {
+      temperature: 31,
+    }
+  }
 };
 
 export async function POST(request: NextRequest) {
