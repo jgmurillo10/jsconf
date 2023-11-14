@@ -94,8 +94,6 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify(data),
       });
       const parsed = await response.json();
-      // const reply = parsed.choices[0].message.content;
-      console.log('>>> wheater', {parsed})
       return NextResponse.json({ messages: parsed }, { status: 200 });
     }
   } else {
