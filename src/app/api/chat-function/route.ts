@@ -1,17 +1,39 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const fetch_weather = async ({city}: {city: string }) => {
-  console.log('>>> Third party API with:', {city});
-  const weatherUrl = `https://api.openweathermap.org/data/3.0/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`;
+const weather_function_definition = {
+  name: 'fetch_weather',
+  description: 'Please fetch a weather for a city',
+  parameters: {
+    type: 'object',
+    properties: {
+      city: {
+        type: 'string',
+        description: 'City to fetch weather for',
+      },
+      latitude: {
+        type: 'number',
+        description: 'Latitude of the city to fetch weather for',
+      },
+      longitude: {
+        type: 'number',
+        description: 'Longitude of the city to fetch weather for',
+      },
+    },
+    required: ['city', 'latitude', 'longitude'],
+  },
+};
+
+const fetch_weather = async ({city, latitude, longitude}: {city: string; latitude: number; longitude: number }) => {
+  console.log('>>> Third party API with:', {city, latitude, longitude});
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`;
 
   try {
     const response = await fetch(weatherUrl);
     const parsed = await response.json();
-    console.log('>>>', {parsed})
 
     return {
-      temperature: parsed.data.main.temp,
-    }
+      temperature: parsed.main.temp - 273.15,
+    };
   } catch (e) {
     console.error(e);
     // fallback
@@ -33,20 +55,7 @@ export async function POST(request: NextRequest) {
     tools: [
       {
         type: 'function',
-        function: {
-          name: 'fetch_weather',
-          description: 'Please fetch a weather for a city',
-          parameters: {
-            type: 'object',
-            properties: {
-              city: {
-                type: 'string',
-                description: 'City to fetch weather for',
-              }
-            },
-            required: ['city'],
-          }
-        }
+        function: weather_function_definition,
       }
     ]
   };
@@ -75,20 +84,7 @@ export async function POST(request: NextRequest) {
         tools: [
           {
             type: 'function',
-            function: {
-              name: 'fetch_weather',
-              description: 'Please fetch a weather for a city',
-              parameters: {
-                type: 'object',
-                properties: {
-                  city: {
-                    type: 'string',
-                    description: 'City to fetch weather for',
-                  }
-                },
-                required: ['city'],
-              }
-            }
+            function: weather_function_definition,
           }
         ]
       };
