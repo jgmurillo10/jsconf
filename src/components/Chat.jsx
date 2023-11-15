@@ -4,8 +4,6 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import cx from "classnames"
 import ChatBubble from "./ChatBubble"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBroom } from "@fortawesome/free-solid-svg-icons"
 
 export default function Chat({ className, onAction })  {
   const [typingMessage, setTypingMessage] = useState("")
@@ -101,7 +99,7 @@ export default function Chat({ className, onAction })  {
     <>
       <div className='absolute right-0 top-0 h-[50px] flex items-center px-4'>
         <button className='group bg-slate-100 w-[32px] h-[32px] rounded' onClick={clearChat}>
-          <FontAwesomeIcon icon={faBroom} className='text-gray-500 group-hover:text-gray-800' />
+          <span className='text-gray-500 group-hover:text-gray-800'>🧹</span>
         </button>
       </div>
       <div className={`flex flex-col justify-between gap-5 pb-6 w-full h-full overflow-hidden ${className}`}>

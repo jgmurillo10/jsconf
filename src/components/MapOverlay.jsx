@@ -1,8 +1,6 @@
 import axios from "axios"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from "@fortawesome/free-solid-svg-icons"
 
 export default function MapOverlay({ placeId, title, onClose }) {
   const [result, setResult] = useState()
@@ -53,7 +51,7 @@ export default function MapOverlay({ placeId, title, onClose }) {
       </div>}
       {loading && <div className='flex items-center'><span className='thinking'></span></div>}
       <button className="absolute top-0 right-0 w-10 h-10 flex items-center justify-center" onClick={onClose}>
-        <FontAwesomeIcon icon={faTimes} className="text-xl text-gray-400" />
+        ❌
       </button>
     </div>
   </div>

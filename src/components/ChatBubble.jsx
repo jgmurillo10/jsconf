@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCompass } from "@fortawesome/free-regular-svg-icons"
 import Markdown from 'react-markdown'
 
 export default function ChatBubble({ role, content, type = "message" }) {
@@ -10,7 +8,7 @@ export default function ChatBubble({ role, content, type = "message" }) {
   if (role === 'assistant') {
     bubbleClass = 'bg-container rounded-lg'
     profile = <div className="flex flex-shrink-0 items-center justify-center bg-primary rounded w-[36px] h-[36px]">
-      <FontAwesomeIcon icon={faCompass} className='text-white text-xl' />
+      <span className='text-white text-xl'>🧭</span>
     </div>
   }
 
