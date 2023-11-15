@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
 import './globals.css'
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 
