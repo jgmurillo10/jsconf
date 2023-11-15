@@ -56,7 +56,7 @@ function MyComponent({ markers, setSelected }: { markers: Place[]; setSelected: 
   const handleMarker = React.useCallback((id: Place['place_id']) => {
     const place = markers.find(({place_id}) => place_id === id);
     setSelected(place);
-  }, [markers]);
+  }, [markers, setSelected]);
 
   return isLoaded ? (
       <GoogleMap

@@ -48,7 +48,7 @@ export default function Home() {
       </section>
       <section id="demos" className='flex flex-col items-center justify-between gap-4 p-8'>
         {demos.map((demo) => (
-          <div className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div key={demo.name} className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
               <Image className="rounded-t-lg" src={demo.image} alt="" height={200} width={600} />
             </a>
