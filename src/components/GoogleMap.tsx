@@ -29,7 +29,7 @@ export type Place = {
 function MyComponent({ markers }: { markers: Place[] }) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyDPn5C1pGETxBRw3-4yscTd_a812hRYN1c",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
   })
 
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
