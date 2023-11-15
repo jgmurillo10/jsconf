@@ -9,9 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@maptiler/sdk": "^1.2.0",
+    "axios": "^1.6.1",
+    "classnames": "^2.3.2",
+    "iron-session": "^6.3.1",
+    "next": "14.0.2",
+    "openai": "^4.17.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.2"
+    "react-markdown": "^9.0.0",
+    "serpapi": "^2.0.0"
   },
   "devDependencies": {
     "typescript": "^5",
