@@ -144,22 +144,22 @@ export async function createOrFindAssistant() {
             },
           }
         },
-        {
-          type: "function",
-          function: {
-            name: "mapSearch",
-            description: "Able to search nearby businesses by query. Example query like restaurants nearby Texas Capitol",
-            parameters: {
-              type: "object",
-              properties: {
-                query: {type: "string", description: "Search query"},
-                latitude: {type: "number", description: "Latitude of the location or place"},
-                longitude: {type: "number", description: "Longitude of the location or place"},
-              },
-              required: ["query"]
-            },
-          }
-        }
+        // {
+        //   type: "function",
+        //   function: {
+        //     name: "mapSearch",
+        //     description: "Able to search nearby businesses by query. Example query like restaurants nearby Texas Capitol",
+        //     parameters: {
+        //       type: "object",
+        //       properties: {
+        //         query: {type: "string", description: "Search query"},
+        //         latitude: {type: "number", description: "Latitude of the location or place"},
+        //         longitude: {type: "number", description: "Longitude of the location or place"},
+        //       },
+        //       required: ["query"]
+        //     },
+        //   }
+        // }
       ],
       model: "gpt-4-1106-preview",
       description: "Made with Wander",
