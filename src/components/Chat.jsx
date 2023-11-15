@@ -61,7 +61,7 @@ export default function Chat({ className, onAction })  {
 
         const rawData = new TextDecoder().decode(value)
         console.log('>>>', rawData);
-        const data = rawData.split("<--JSON").filter(dt => dt)
+        const data = rawData.split("<>").filter(dt => dt)
         data.forEach(dt => {
           console.log('>>>', dt);
           const { messages, action, actionArgs } = JSON.parse(dt)
