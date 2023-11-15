@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Juan Murillo | JSConf demos',
   description: 'Supercharge your React apps demos',
+  openGraph: {
+    images: [{
+      url: "/medellin2.png",
+    }],
+  }
 }
 
 export default function RootLayout({
