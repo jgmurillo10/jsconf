@@ -5,6 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jsconf.juanmurillo.co'),
   title: 'Juan Murillo | JSConf demos',
   description: 'Supercharge your React apps demos',
   openGraph: {
