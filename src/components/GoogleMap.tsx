@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, InfoWindow, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '50vw',
@@ -26,14 +26,13 @@ export type Place = {
   longitude: number;
 }
 
-function MyComponent({ markers }: { markers: Place[] }) {
+function MyComponent({ markers, setSelected }: { markers: Place[]; setSelected: any }) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
   })
 
   const [map, setMap] = React.useState<google.maps.Map | null>(null);
-  const [info, setInfo] = React.useState<Place | null>(null);
 
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
     map.setZoom(zoom);
@@ -57,10 +56,8 @@ function MyComponent({ markers }: { markers: Place[] }) {
 
   const handleMarker = React.useCallback((id: Place['place_id']) => {
     const place = markers.find(({place_id}) => place_id === id);
-    if (place) {
-      setInfo(place);
-    }
-  }, []);
+    setSelected(place);
+  }, [markers]);
 
   return isLoaded ? (
       <GoogleMap
@@ -71,11 +68,6 @@ function MyComponent({ markers }: { markers: Place[] }) {
         onUnmount={onUnmount}
       >
         <>
-          {info && <InfoWindow position={{ lat: info.latitude, lng: info.longitude }} onCloseClick={() => setInfo(null)} onUnmount={() => setInfo(null)}>
-            <div style={divStyle}>
-              <h1>{info.title}</h1>
-            </div>
-          </InfoWindow>}
           {markers.map(({place_id, latitude, longitude}) => <Marker onClick={() => handleMarker(place_id)} key={place_id} position={{lat: latitude, lng: longitude}} />)}
         </>
       </GoogleMap>

@@ -2,9 +2,12 @@ import axios from "axios"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-export default function MapOverlay({ placeId, title, onClose }) {
-  const [result, setResult] = useState()
-  const [loading, setLoading] = useState(false)
+import type { Place } from "./GoogleMap"
+
+export default function MapOverlay({ place, onClose }: { place: Place; onClose: any }) {
+  const [result, setResult] = useState<any | null>()
+  const [loading, setLoading] = useState<boolean>(false)
+  const {place_id: placeId, title} = place;
 
   useEffect(() => {
     const loadResult = async () => {
@@ -33,6 +36,7 @@ export default function MapOverlay({ placeId, title, onClose }) {
         <div className="flex flex-col py-1">
           <span>{result?.title || title}</span>
           {result?.reviews && <span className="text-sm text-gray-500">{result?.rating} ({result?.reviews})</span>}
+          <span className="text-sm text-gray-500">Location: 📍[{place.latitude}, {place.longitude}]</span>
           <span className="text-sm text-gray-500">{result?.address}</span>
           <span className="text-sm text-gray-500">{result?.open_state}</span>
         </div>
@@ -40,7 +44,7 @@ export default function MapOverlay({ placeId, title, onClose }) {
       {result?.user_reviews?.most_relevant && <div className="mt-4">
         <div className="text-sm">Reviews</div>
         <div className="-my-4">
-          {result.user_reviews.most_relevant.map((review, index) => (
+          {result.user_reviews.most_relevant.map((review: any, index: number) => (
             <div key={index} className="flex flex-col gap-3 bg-container rounded my-4 px-4 py-2">
               <span className="text-gray-600">{review.username} (Rating: {review.rating})</span>
               <p>{review.description}</p>
