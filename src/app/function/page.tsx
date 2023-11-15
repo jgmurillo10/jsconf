@@ -14,6 +14,7 @@ export default function Basic() {
   }
 
   const getMessage = async () => {
+    setLoading(true);
     try {
       const data = { query };
       setQuery("");
@@ -26,6 +27,8 @@ export default function Basic() {
       setResponse([{text: { value: message.content } }] as any);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   }
 
