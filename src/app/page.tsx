@@ -5,19 +5,19 @@ const demos = [
   {
     name: 'Basic',
     description: `Basic example of integrating GPT into a React App, let's try to chat and maybe ask stuff about legal things, the weather, cool places`,
-    image: '',
+    image: '/medellin.png',
     path: '/basic'
   },
   {
     name: 'Function',
     description: 'This examples now integrates function calling which add steroids on GPT models, now were are able to use our own logic or third-party providers.',
-    image: '',
+    image: '/medellin3.png',
     path: '/function'
   },
   {
     name: 'Assistant',
     description: 'Now we have super powers! We can define assistants in natural language, and integrate them through the API into our apps!',
-    image: '',
+    image: '/medellin4.png',
     path: '/assistant'
   },
 ]
@@ -50,7 +50,7 @@ export default function Home() {
         {demos.map((demo) => (
           <div className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-              <img className="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+              <Image className="rounded-t-lg" src={demo.image} alt="" height={200} width={600} />
             </a>
             <div className="p-5">
               <Link href={demo.path} className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

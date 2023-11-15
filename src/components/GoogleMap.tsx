@@ -51,7 +51,7 @@ function MyComponent({ markers, setSelected }: { markers: Place[]; setSelected: 
       });
       map?.fitBounds(bounds);
     }
-  }, [markers]);
+  }, [markers, map]);
 
   const handleMarker = React.useCallback((id: Place['place_id']) => {
     const place = markers.find(({place_id}) => place_id === id);

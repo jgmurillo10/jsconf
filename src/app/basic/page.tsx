@@ -43,7 +43,7 @@ export default function Basic() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-xl mb-2">Basic</h1>
+      <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Basic</h1>
       <div className={`flex flex-col justify-between gap-5 pb-6 w-full h-full overflow-hidden`}>
         <div id="chatbox" className="overflow-scroll flex flex-col-reverse px-4 gap-2">
           {loading ? <ChatBubble role="assistant" type="thinking" /> : response ? <ChatBubble role="assistant" content={response} /> : null}
