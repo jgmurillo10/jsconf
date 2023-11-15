@@ -58,13 +58,10 @@ export default function Chat({ className, onAction })  {
       let result = '';
       while (true) {
         const {value, done} = await reader.read();
-        console.log('>>> parsing', {value, done})
         
         if (done) break;
         const rawData = new TextDecoder().decode(value)
-        console.log('>>>', {rawData});
         result += rawData;
-        console.log('>>>', {result});
       }
 
       

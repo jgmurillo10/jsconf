@@ -34,8 +34,7 @@ export async function POST(request) {
               action: functionName.replace("ui_", ""),
               actionArgs: functionArgs
             }
-            // All the chunk will combined for some cases, thus not able to parse the JSON
-            // <--JSON allow use to split and parse correctly
+            // __JSON__ allow use to split and parse correctly
             controller.enqueue(encoder.encode(`${JSON.stringify(actionReponse)}__JSON__`))
           } else {
             functionOutput = await handleToolCall(functionName, functionArgs)

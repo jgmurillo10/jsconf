@@ -122,7 +122,7 @@ export async function createOrFindAssistant() {
           type: "function",
           function: {
             name: "ui_addBusinessMapMarkers",
-            description: "Set the marker on the map for local businesses, e.g. restaurants, cafes, workshops, fitness centre and many more. It can accept single entry or multiple entries.",
+            description: "Set the marker on the map for places, attractions, e.g. restaurants, cafes, touristic places, workshops, museums, parks, attractions, fitness centre and many more. It can accept single entry or multiple entries.",
             parameters: {
               type: "object",
               properties: {
