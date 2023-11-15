@@ -3,6 +3,8 @@ import { createUserMessageInThread, createOrFindAssistant, getSessionThread, get
 import { createSessionCookie } from "../session";
 import { mapSearch } from "../search_api";
 
+export const runtime = 'edge' 
+
 export async function POST(request) {
   const payload = await request.json();
   console.log('>>> POST', {payload})

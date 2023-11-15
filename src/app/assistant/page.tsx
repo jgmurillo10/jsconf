@@ -5,8 +5,6 @@ import MapOverlay from '@/components/MapOverlay'
 import { useState } from 'react'
 import type { Place } from '@/components/GoogleMap'
 
-export const runtime = 'edge' 
-
 export default function Home() {
   const [selectedBusiness, setSelectedBusiness] = useState<Place | null>()
   const [coordinates, setCoordinates] = useState<Place[]>([]);
