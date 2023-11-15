@@ -15,7 +15,7 @@
 }
 
 .thinking {
-  @apply block w-[16px] h-[16px] bg-on-container rounded-full;
+  @apply block w-[16px] h-[16px] bg-on-container dark:bg-white rounded-full;
   animation: pulse 1.5s infinite;
 }
 

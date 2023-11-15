@@ -107,7 +107,7 @@ export default function Chat({ className, onAction })  {
   return (
     <>
       <div className='absolute right-0 top-0 h-[50px] flex items-center px-4'>
-        <button className='group bg-slate-100 w-[32px] h-[32px] rounded' onClick={clearChat}>
+        <button className='group bg-slate-100 dark:bg-blue-100 w-[32px] h-[32px] rounded' onClick={clearChat}>
           <span className='text-gray-500 group-hover:text-gray-800'>🧹</span>
         </button>
       </div>
@@ -134,7 +134,7 @@ export default function Chat({ className, onAction })  {
                 }
               }}
               rows={1}
-              className="flex-grow px-4 py-4 text-on-container h-[56px] max-h-[200px] bg-transparent outline-none resize-none"
+              className="flex-grow px-4 py-4 text-on-container h-[56px] max-h-[200px] bg-transparent outline-none resize-none text-white"
               type="text"
               placeholder="Send a message"
               value={typingMessage}
