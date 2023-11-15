@@ -1,10 +1,11 @@
 "use client"
-
 import Chat from '@/components/Chat'
 import GoogleMap from '@/components/GoogleMap'
 import MapOverlay from '@/components/MapOverlay'
 import { useState } from 'react'
 import type { Place } from '@/components/GoogleMap'
+
+export const runtime = 'edge' 
 
 export default function Home() {
   const [selectedBusiness, setSelectedBusiness] = useState<Place | null>()
