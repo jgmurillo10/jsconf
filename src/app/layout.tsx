@@ -35,7 +35,7 @@ export default function RootLayout({
               <Link href="/function">Function</Link>
             </li>
             <li>
-              <Link href="/assistant">Assistant + 3rd-party + Function</Link>
+              <Link href="/assistant">Assistant</Link>
             </li>
           </ul>
         </nav>
