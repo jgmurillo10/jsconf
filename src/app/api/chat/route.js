@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { createUserMessageInThread, createOrFindAssistant, getSessionThread, getThreadMessagesById, submitToolOutputs, getActiveRun, createRun, waitUntilNextStep, deleteThreadById } from "@/app/api/intelligent";
 import { createSessionCookie } from "../session";
-import { mapSearch } from "../search_api";
 
 export const runtime = 'edge' 
 
@@ -67,10 +66,6 @@ export async function POST(request) {
 
 async function handleToolCall(functionName, functionArgs) {
   console.log('>>> handlingToolCall', {functionName, functionArgs});
-  if (functionName === "mapSearch") {
-    const results = await mapSearch(functionArgs.query, functionArgs.latitude, functionArgs.longitude)
-    return JSON.stringify(results)
-  }
 }
 
 export async function GET() {
