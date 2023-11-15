@@ -41,7 +41,7 @@ function MyComponent({ markers }: { markers: Place[] }) {
     setMap(map);
   }, [])
 
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
     setMap(null)
   }, [])
 
@@ -55,7 +55,7 @@ function MyComponent({ markers }: { markers: Place[] }) {
     }
   }, [markers]);
 
-  const handleMarker = React.useCallback((id) => {
+  const handleMarker = React.useCallback((id: Place['place_id']) => {
     const place = markers.find(({place_id}) => place_id === id);
     if (place) {
       setInfo(place);
