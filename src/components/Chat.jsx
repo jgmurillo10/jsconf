@@ -55,16 +55,20 @@ export default function Chat({ className, onAction })  {
       })
 
       const reader = response.body.getReader()
-      let result;
+      let result = '';
       while (true) {
         const {value, done} = await reader.read();
+        console.log('>>> parsing', {value, done})
+        
         if (done) break;
-        res += value;
+        const rawData = new TextDecoder().decode(value)
+        console.log('>>>', {rawData});
+        result += rawData;
+        console.log('>>>', {result});
       }
 
-      const rawData = new TextDecoder().decode(result)
-      console.log('>>>', rawData);
-      const data = rawData.split("__JSON__").filter(dt => dt)
+      
+      const data = result.split("__JSON__").filter(dt => dt)
       data.forEach(dt => {
         console.log('>>>', dt);
         const { messages, action, actionArgs } = JSON.parse(dt)
