@@ -22,6 +22,7 @@ export default function Chat({ className, onAction })  {
         const { data } = await axios.get(`/api/chat`)
         setMessages(data.messages)
       } catch (err) {
+        console.error({err})
         alert(err)
       } finally {
         setLoading(false)
@@ -67,11 +68,13 @@ export default function Chat({ className, onAction })  {
             setMessages(messages)
           }
           if (action) {
+            console.log('>>> action', {action, actionArgs});
             onAction(action, actionArgs)
           }
         })
       }
     } catch (err) {
+      console.error('>>>', {err})
       alert(err)
     } finally {
       setLoading(false)
@@ -83,6 +86,7 @@ export default function Chat({ className, onAction })  {
       await axios.delete("/api/chat")
       setMessages([])
     } catch (e) {
+      console.error(e)
       alert(e)
     }
   }

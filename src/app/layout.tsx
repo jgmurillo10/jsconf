@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import './globals.css'
-import "@maptiler/sdk/dist/maptiler-sdk.css";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,8 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav>
+      <body className={`${inter.className}`}>
+        <nav className='bg-slate-300 p-4'>
           <ul>
             <li>
               <Link href="/">Home</Link>

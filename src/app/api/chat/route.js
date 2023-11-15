@@ -5,6 +5,8 @@ import { mapSearch } from "../search_api";
 
 export async function POST(request) {
   const payload = await request.json();
+  console.log('>>> POST', {payload})
+
   const assistant = await createOrFindAssistant()
   const thread = await getSessionThread()
 
