@@ -53,12 +53,12 @@ export default function Basic() {
 
   const processSpeech = async () => {
     setLoading(true);
-    const { data } = await speechToText(recordingBlob);
-    console.log('>>>', {data, text:data.text});
-    const message = await chat(data.text);
-    const blob = await textToSpeech(message.content);
-    
     try {
+      const { data } = await speechToText(recordingBlob);
+      console.log('>>>', {data, text:data.text});
+      const message = await chat(data.text);
+      console.log('>>>', {message, content: message.content});
+      const blob = await textToSpeech(message.content);
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
       // setAudio(audio);

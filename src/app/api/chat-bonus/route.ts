@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const scrape_website_definition = {
   name: 'scrape_website',
-  description: 'Please scrape a website',
+  description: 'Please scrape or visit a website',
   parameters: {
     type: 'object',
     properties: {
@@ -1916,9 +1916,11 @@ export async function POST(request: NextRequest) {
   const parsed = await response.json();
   const message = parsed.choices[0].message;
 
+  console.log('>>>', {tool_calls: message.tool_calls, message, parsed});
   if (message.tool_calls) {
     const [firstCall] = message.tool_calls;
     const function_name = firstCall.function.name;
+    console.log('>>>', {function_name})
 
     if (function_name === 'scrape_website') {
       const functionArgs = JSON.parse(firstCall.function.arguments);
