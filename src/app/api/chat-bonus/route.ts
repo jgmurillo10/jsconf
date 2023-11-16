@@ -1941,13 +1941,13 @@ export async function POST(request: NextRequest) {
           }
         ]
       };
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const responseFollowUp = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers,
         body: JSON.stringify(data),
       });
-      const parsed = await response.json();
-      return NextResponse.json({ messages: parsed }, { status: 200 });
+      const parsedFollowUp = await responseFollowUp.json();
+      return NextResponse.json({ messages: parsedFollowUp }, { status: 200 });
     }
   } else {
     return NextResponse.json({ messages: parsed }, { status: 200 })
