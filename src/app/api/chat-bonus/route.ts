@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = 'edge'
+export const maxDuration = 300;
 
 const scrape_website_definition = {
   name: 'scrape_website',
