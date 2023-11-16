@@ -22,7 +22,7 @@ const demos = [
   },
   {
     name: 'Bonus',
-    description: `Bonus example using whisper, GPT, and text-to-speech models together with function calling`,
+    description: `Bonus example using whisper, GPT, and text-to-speech models together with function calling. Everything in a few lines of code.`,
     image: '/medellin5.png',
     path: '/bonus'
   },
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </div>
       </section>
-      <section id="demos" className='flex flex-col items-center justify-between gap-4 p-8'>
+      <section id="demos" className='flex flex-wrap justify-center gap-8 p-8'>
         {demos.map((demo) => (
           <div key={demo.name} className="max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
