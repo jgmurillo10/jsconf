@@ -76,18 +76,18 @@ export default function Basic() {
     }
   }
 
-  const styles = isRecording || speaking ? 'bg-black' : 'bg-white';
+  const styles = isRecording || speaking ? 'bg-emerald-900' : 'bg-white';
 
   return (
-    <main className={`w-screen h-screen flex justify-center items-center ${styles}`}>
+    <main className={`w-screen h-screen flex justify-center items-center transition-all duration-300 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ${styles}`}>
       {isRecording ? (
-        <button className="bg-slate-600 rounded-full w-64 h-64 animate-pulse" onClick={stopRecording}>Listening</button>
+        <button className="bg-white rounded-full w-64 h-64 animate-pulse text-emerald-900" onClick={stopRecording}>Listening</button>
       ) : speaking ? (
-        <button className="bg-slate-600 rounded-full w-64 h-64 animate-pulse">Speaking</button>
+        <button className="bg-white rounded-full w-64 h-64 animate-pulse text-emerald-900">Speaking</button>
       ) : loading ? (
-        <button className="bg-slate-300 rounded-full w-64 h-64 text-black animate-pulse">Thinking</button>
+        <button className="bg-emerald-900 rounded-full w-64 h-64 animate-pulse">Thinking</button>
       ) : (
-        <button className="bg-slate-300 rounded-full w-64 h-64 text-black" onClick={startRecording}>
+        <button className="bg-emerald-900 rounded-full w-64 h-64" onClick={startRecording}>
           Click to speak
         </button>
       )}
