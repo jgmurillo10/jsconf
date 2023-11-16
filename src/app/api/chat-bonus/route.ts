@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = 'edge'
+
 const scrape_website_definition = {
   name: 'scrape_website',
   description: 'Please scrape or visit a website',
