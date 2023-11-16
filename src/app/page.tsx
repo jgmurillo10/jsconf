@@ -22,8 +22,8 @@ const demos = [
   },
   {
     name: 'Bonus',
-    description: `Bonus example using voice models`,
-    image: '/medellin.png',
+    description: `Bonus example using whisper, GPT, and text-to-speech models together with function calling`,
+    image: '/medellin5.png',
     path: '/bonus'
   },
 ]
