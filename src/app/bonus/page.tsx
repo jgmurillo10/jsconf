@@ -32,7 +32,7 @@ export default function Basic() {
 
   const chat = async (text: string) => {
     const data = { query: text };
-    const response = await fetch('/api/chat-basic/', {
+    const response = await fetch('/api/chat-bonus/', {
       method: 'POST',
       body: JSON.stringify(data),
     });
@@ -54,6 +54,7 @@ export default function Basic() {
   const processSpeech = async () => {
     setLoading(true);
     const { data } = await speechToText(recordingBlob);
+    console.log('>>>', {data, text:data.text});
     const message = await chat(data.text);
     const blob = await textToSpeech(message.content);
     
