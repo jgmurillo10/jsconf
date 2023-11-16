@@ -20,6 +20,12 @@ const demos = [
     image: '/medellin4.png',
     path: '/assistant'
   },
+  {
+    name: 'Bonus',
+    description: `Bonus example using voice models`,
+    image: '/medellin.png',
+    path: '/bonus'
+  },
 ]
 export default function Home() {
   return (
