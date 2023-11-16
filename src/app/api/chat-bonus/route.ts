@@ -1917,7 +1917,9 @@ export async function POST(request: NextRequest) {
     body: JSON.stringify(data),
   });
   const parsed = await response.json();
+  console.log('>>>', {parsed})
   const message = parsed.choices[0].message;
+  console.log('>>>', {message})
 
   console.log('>>>', {tool_calls: message.tool_calls, message, parsed});
   if (message.tool_calls) {
