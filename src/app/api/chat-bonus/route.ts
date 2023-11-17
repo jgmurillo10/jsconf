@@ -18,9 +18,9 @@ const scrape_website_definition = {
   },
 };
 
-const scrape_website = async ({website}: {website: string; }) => {
-  console.log('>>> Third party scraping with:', {website});
-  
+const scrape_website = async ({ website }: { website: string; }) => {
+  console.log('>>> Third party scraping with:', { website });
+
   try {
     const response = await fetch(website);
     const parsed = await response.text();
@@ -1903,7 +1903,10 @@ export async function POST(request: NextRequest) {
   };
   const data = {
     model: 'gpt-4-1106-preview',
-    messages: [{ role: 'user', content: query }],
+    messages: [
+      { role: 'system', content: 'You are a concise helpful assistant.' },
+      { role: 'user', content: query },
+    ],
     tools: [
       {
         type: 'function',
@@ -1917,15 +1920,15 @@ export async function POST(request: NextRequest) {
     body: JSON.stringify(data),
   });
   const parsed = await response.json();
-  console.log('>>>', {parsed})
+  console.log('>>>', { parsed })
   const message = parsed.choices[0].message;
-  console.log('>>>', {message})
+  console.log('>>>', { message })
 
-  console.log('>>>', {tool_calls: message.tool_calls, message, parsed});
+  console.log('>>>', { tool_calls: message.tool_calls, message, parsed });
   if (message.tool_calls) {
     const [firstCall] = message.tool_calls;
     const function_name = firstCall.function.name;
-    console.log('>>>', {function_name})
+    console.log('>>>', { function_name })
 
     if (function_name === 'scrape_website') {
       const functionArgs = JSON.parse(firstCall.function.arguments);
