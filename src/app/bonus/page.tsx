@@ -42,10 +42,10 @@ export default function Basic() {
     return message;
   }
 
-  const textToSpeech = async (text: string = 'The after party is today from 5:00 p.m. until 7:00 p.m.' ) => {
+  const textToSpeech = async (text: string) => {
     const response = await fetch('/api/speech', {
       method: 'POST',
-      body: JSON.stringify({ query: text }),
+      body: JSON.stringify({ query: text || 'The after party is today from 5:00 p.m. until 7:00 p.m.' }),
     });
 
     return await response.blob();
