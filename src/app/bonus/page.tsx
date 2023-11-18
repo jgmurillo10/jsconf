@@ -42,7 +42,7 @@ export default function Basic() {
     return message;
   }
 
-  const textToSpeech = async (text: string) => {
+  const textToSpeech = async (text: string = 'The after party is today from 5:00 p.m. until 7:00 p.m.' ) => {
     const response = await fetch('/api/speech', {
       method: 'POST',
       body: JSON.stringify({ query: text }),
