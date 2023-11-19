@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useState } from "react";
-// import cx from "classnames"
-// import ChatBubble from "@/components/ChatBubble";
 import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 
 const speechToText = async (blob: any) => {
@@ -45,7 +43,7 @@ export default function Basic() {
   const textToSpeech = async (text: string) => {
     const response = await fetch('/api/speech', {
       method: 'POST',
-      body: JSON.stringify({ query: text || 'The after party is today from 5:00 p.m. until 7:00 p.m.' }),
+      body: JSON.stringify({ query: text }),
     });
 
     return await response.blob();
@@ -61,7 +59,6 @@ export default function Basic() {
       const blob = await textToSpeech(message.content);
       const url = URL.createObjectURL(blob);
       const audio = new Audio(url);
-      // setAudio(audio);
       audio.play();
       setSpeaking(true);
 
